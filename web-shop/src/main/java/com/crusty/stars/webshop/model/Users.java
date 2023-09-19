@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity("\"User\"")
-public class User {
+@Entity
+public class Users {
     @Id
     @GeneratedValue
     private long id;
