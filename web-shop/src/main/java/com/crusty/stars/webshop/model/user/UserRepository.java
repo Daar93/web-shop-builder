@@ -1,5 +1,6 @@
-package com.crusty.stars.webshop.model;
+package com.crusty.stars.webshop.model.user;
 
+import com.crusty.stars.webshop.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
