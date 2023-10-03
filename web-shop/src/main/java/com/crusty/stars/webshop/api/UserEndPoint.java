@@ -1,12 +1,10 @@
 package com.crusty.stars.webshop.api;
 
-import com.crusty.stars.webshop.model.Users;
+import com.crusty.stars.webshop.model.User;
 import com.crusty.stars.webshop.model.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -18,12 +16,17 @@ public class UserEndPoint {
         this.userRepository = userRepository;
     }
     @GetMapping
-    List<Users> finAll(){
+    List<User> findAll(){
         return userRepository.findAll();
     }
     @GetMapping("/name/{name}")
-    Users findByName(@PathVariable String name) throws UserNotFoundException {
+    public User findByName(@PathVariable String name) throws UserNotFoundException {
         return userRepository.findByName(name)
                 .orElseThrow(UserNotFoundException::new);
+    }
+
+    @PostMapping("/create")
+    public User save(@RequestBody User newUser) {
+        return userRepository.save(new User(newUser.getName(), newUser.getPassword()));
     }
 }
