@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+
 import "./Login.scss";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 const LoginPage = () => {
     const [name, setName] = useState(null);
@@ -21,9 +21,6 @@ const LoginPage = () => {
         const isDataValid = loginCredentials.some(credentials => 
             credentials.name === name && credentials.password === password
         );
-
-        console.log(name, password);
-        console.log(isDataValid);
 
         setIsLoggedIn(isDataValid);
     }
