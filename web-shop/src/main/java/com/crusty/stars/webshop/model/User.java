@@ -1,7 +1,6 @@
 package com.crusty.stars.webshop.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -12,12 +11,10 @@ public class User {
     private long id;
     private String name;
     private String password;
-//    private LocalDate birthDate;
 
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-//        this.birthDate = birthDate;
     }
 
     public User() {
@@ -32,10 +29,6 @@ public class User {
         this.password = password;
     }
 
-//    public void setBirthDate(LocalDate birthDate) {
-//        this.birthDate = birthDate;
-//    }
-
     public long getId() {
         return id;
     }
@@ -47,8 +40,4 @@ public class User {
     public String getPassword() {
         return password;
     }
-
-//    public LocalDate getBirthDate() {
-//        return birthDate;
-//    }
 }
