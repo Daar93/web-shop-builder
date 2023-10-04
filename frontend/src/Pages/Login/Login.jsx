@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "./Login.scss";
 
-const LoginPage = () => {
+export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
     const [loginCredentials, setLoginCredentials] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,5 +51,3 @@ const LoginPage = () => {
         </div>
     </div>
 };
-
-export default LoginPage;

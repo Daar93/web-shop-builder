@@ -3,17 +3,20 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
+import NavigationBar from "./Pages/Layout/NavigationBar.jsx";
 import ErrorPage from "./Pages/Error/Error.jsx";
 import LoginPage from "./Pages/Login/Login.jsx";
 import LandingPage from "./Pages/Landing/Landing.jsx"
+import RegistrationPage from "./Pages/Registration/Registration";
 
 import "./index.scss";
+import ShoppingCartPage from "./Pages/ShoppingCart/ShoppingCart";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage />,
+    element: <NavigationBar />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -21,8 +24,16 @@ const router = createBrowserRouter([
         element: <LandingPage/>
       },
       {
-        path: "/create",
-        element: ""
+        path: "/log-in",
+        element: <LoginPage />
+      },
+      {
+        path: "/registration",
+        element: <RegistrationPage />
+      },
+      {
+        path: "/shopping-cart",
+        element: <ShoppingCartPage />
       },
     ],
   },
