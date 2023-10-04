@@ -1,19 +1,27 @@
+import React, { useEffect, useState } from "react";
+import "./ProductListing.scss"; // Update the import path as needed
 
 const ProductListingPage = () => {
-    // Define your product data here or fetch it from an API
-    const products = [
-        {
-            id: 1,
-            name: "Product 1",
-            description: "Description of Product 1",
-        },
-        {
-            id: 2,
-            name: "Product 2",
-            description: "Description of Product 2",
-        },
-        // Add more products as needed
-    ];
+    // Define a state to store the products fetched from the server
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        // Fetch products from the API
+        fetch("http://localhost:8080/api/products")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch products");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Update the products state with the fetched data
+                setProducts(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error);
+            });
+    }, []);
 
     return (
         <div>
@@ -28,5 +36,6 @@ const ProductListingPage = () => {
             </ul>
         </div>
     );
-}
+};
+
 export default ProductListingPage;

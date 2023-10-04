@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4648d2dd-6994-4d61-96ad-570186faf5e7" name="Changes" comment="updated the httpclient dependency due to building issues.">
+    <list default="true" id="4648d2dd-6994-4d61-96ad-570186faf5e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-shop/src/main/java/com/crusty/stars/webshop/controller/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-shop/src/main/java/com/crusty/stars/webshop/controller/DataLoader.java" afterDir="false" />
     </list>
