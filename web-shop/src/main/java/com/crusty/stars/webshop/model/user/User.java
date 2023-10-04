@@ -1,4 +1,4 @@
-package com.crusty.stars.webshop.model;
+package com.crusty.stars.webshop.model.user;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

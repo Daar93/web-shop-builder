@@ -1,7 +1,7 @@
-package com.crusty.stars.webshop.api;
+package com.crusty.stars.webshop.api.user;
 
-import com.crusty.stars.webshop.model.User;
-import com.crusty.stars.webshop.model.UserRepository;
+import com.crusty.stars.webshop.model.user.User;
+import com.crusty.stars.webshop.model.user.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

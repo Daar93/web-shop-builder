@@ -1,4 +1,4 @@
-package com.crusty.stars.webshop.api;
+package com.crusty.stars.webshop.api.user;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
