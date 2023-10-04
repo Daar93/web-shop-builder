@@ -4,7 +4,6 @@ import com.crusty.stars.webshop.model.User;
 import com.crusty.stars.webshop.model.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -16,17 +15,24 @@ public class UserEndPoint {
         this.userRepository = userRepository;
     }
     @GetMapping
-    List<User> findAll(){
+    public List<User> findAll(){
         return userRepository.findAll();
     }
-    @GetMapping("/name/{name}")
+    @GetMapping("/{name}")
     public User findByName(@PathVariable String name) throws UserNotFoundException {
         return userRepository.findByName(name)
                 .orElseThrow(UserNotFoundException::new);
     }
 
-    @PostMapping("/create")
-    public User save(@RequestBody User newUser) {
-        return userRepository.save(new User(newUser.getName(), newUser.getPassword()));
+    @PostMapping("/")
+    public User create(@RequestBody User user) {
+        userRepository.save(new User(user.getName(), user.getPassword()));
+        return user;
     }
+
+//    @DeleteMapping("/{name}")
+//    public User delete(@PathVariable String name) {
+//        userRepository.delete();
+//        return userRepository.findByName(name);
+//    }
 }
