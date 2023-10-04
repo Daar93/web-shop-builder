@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import ErrorPage from "./Pages/Error/Error.jsx";
 import LoginPage from "./Pages/Login/Login.jsx";
 import LandingPage from "./Pages/Landing/Landing.jsx"
+import ProductListingPage from "./Pages/ProductListing/ProductListing.jsx";
 
 import "./index.scss";
 
@@ -14,17 +15,22 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LoginPage />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <LandingPage/>
-      },
-      {
-        path: "/create",
-        element: ""
-      },
-    ],
+  },
+  {
+    path: "/landing",
+    element: <LandingPage />,
+  },
+  {
+    path: "/products",
+    element: <ProductListingPage />,
+  },
+  {
+    path: "/create",
+    element: "", // You can add a component for the create route if needed
+  },
+  {
+    path: "/error",
+    element: <ErrorPage />,
   },
 ]);
 
