@@ -1,0 +1,19 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        input {
+            font-size: bold;
+            font-weight: 100px;
+            width: 30vw;
+            height: 3vh;
+        } 
+        button {
+            background-color: #FAF2D7;
+        }
+    }
+}
