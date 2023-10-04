@@ -1,7 +1,8 @@
 package com.crusty.stars.webshop.controller;
 
-import com.crusty.stars.webshop.model.User;
-import com.crusty.stars.webshop.model.UserRepository;
+
+import com.crusty.stars.webshop.model.user.User;
+import com.crusty.stars.webshop.model.user.UserRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
