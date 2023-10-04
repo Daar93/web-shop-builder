@@ -1,10 +1,15 @@
 import { Link, Outlet } from "react-router-dom"
+import logo from './../../shared/images/logo.png';
+
 import "./NavigationBar.scss"
 
 export default function NavigationBar() {
     return <div className="Layout">
         <nav>
             <ul>
+                <li className="logo-container">                    
+                    <Link to="/"><img src={logo} alt="Logo" className="logo"></img></Link>
+                </li>
                 <li className="home-page">
                     <Link to="/">Home</Link>
                 </li>
