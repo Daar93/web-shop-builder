@@ -30,22 +30,26 @@ const LoginPage = () => {
         setIsLoggedIn(isDataValid);
     }
 
-    return <div className="login">
-        <form className="login-form">
-            <input 
-                name="userName"
-                onChange={ onInputChange }
-                placeholder="Name"
-            ></input>
-            <input 
-                name="password"
-                onChange={ onInputChange }
-                placeholder="Password"
-                type="password"
-            ></input>
-            <button type="submit" onClick={ handleSubmit }>Submit</button>
-        </form>
-    </div> 
+    return <div className="container">
+        <div className="login-card"> 
+            <div className="login">
+                <form className="login-form">
+                    <input 
+                        name="userName"
+                        onChange={ onInputChange }
+                        placeholder="Name"
+                    ></input>
+                    <input 
+                        name="password"
+                        onChange={ onInputChange }
+                        placeholder="Password"
+                        type="password"
+                    ></input>
+                    <button type="submit" onClick={ handleSubmit }>Submit</button>
+                </form>
+            </div> 
+        </div>
+    </div>
 };
 
 export default LoginPage;
