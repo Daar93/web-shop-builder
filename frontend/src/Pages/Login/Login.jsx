@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import "./Login.scss";
 
 const LoginPage = () => {
-    const [name, setName] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [userInformation, setUserInformation] = useState({});
     const [loginCredentials, setLoginCredentials] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -15,30 +14,42 @@ const LoginPage = () => {
     }, [])
 
     console.log(loginCredentials);
-    function handleClick(event) {
+
+    function onInputChange(event) {
+        userInformation[event.target.name] = event.target.value;
+        setUserInformation(userInformation);
+    }
+
+    function handleSubmit(event) {
         event.preventDefault();
 
         const isDataValid = loginCredentials.some(credentials => 
-            credentials.name === name && credentials.password === password
+            credentials.name === userInformation.userName && credentials.password === userInformation.password
         );
-
+        
         setIsLoggedIn(isDataValid);
     }
 
-    return <div className="login">
-        <form className="login-form">
-            <input 
-                onChange={(event) => setName(event.target.value)}
-                placeholder="Name"
-            ></input>
-            <input 
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder="Password"
-                type="password"
-            ></input>
-            <button type="submit" onClick={ handleClick }>Submit</button>
-        </form>
-    </div> 
+    return <div className="container">
+        <div className="login-card"> 
+            <div className="login">
+                <form className="login-form">
+                    <input 
+                        name="userName"
+                        onChange={ onInputChange }
+                        placeholder="Name"
+                    ></input>
+                    <input 
+                        name="password"
+                        onChange={ onInputChange }
+                        placeholder="Password"
+                        type="password"
+                    ></input>
+                    <button type="submit" onClick={ handleSubmit }>Submit</button>
+                </form>
+            </div> 
+        </div>
+    </div>
 };
 
 export default LoginPage;
