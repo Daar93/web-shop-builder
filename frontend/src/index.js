@@ -1,13 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import ErrorPage from "./Pages/Error/Error.jsx";
+import LoginPage from "./Pages/Login/Login.jsx";
+import LandingPage from "./Pages/Landing/Landing.jsx"
+import ProductListingPage from "./Pages/ProductListing/ProductListing.jsx";
+
+import "./index.scss";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LoginPage />,
+  },
+  {
+    path: "/landing",
+    element: <LandingPage />,
+  },
+  {
+    path: "/products",
+    element: <ProductListingPage />,
+  },
+  {
+    path: "/create",
+    element: "", // You can add a component for the create route if needed
+  },
+  {
+    path: "/error",
+    element: <ErrorPage />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
