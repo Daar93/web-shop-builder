@@ -14,8 +14,6 @@ export default function LoginPage() {
             .then(data => setLoginCredentials(data))
     }, [])
 
-    console.log(loginCredentials);
-
     function onInputChange(event) {
         userInformation[event.target.name] = event.target.value;
         setUserInformation(userInformation);
