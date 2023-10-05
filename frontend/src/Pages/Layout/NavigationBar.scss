@@ -42,5 +42,16 @@ a:hover {
 }
 
 .shopping-cart-logo {
-    width: 4rem;
+    width: 3rem;
+}
+
+.logo-wrapper{
+    background-color: #708090;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    .user-logo {
+        width: 2rem;
+    }
 }

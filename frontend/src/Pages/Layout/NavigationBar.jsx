@@ -1,6 +1,8 @@
 import { Link, Outlet } from "react-router-dom"
 import logo from './../../shared/images/logo.png';
 import shoppingCart from "./../../shared/images/shopping-cart.png"
+import userLogo from "./../../shared/images/user.png"
+
 
 import "./NavigationBar.scss"
 
@@ -25,6 +27,13 @@ export default function NavigationBar() {
                 </li>
                 <li className="shopping-cart-page">
                     <Link to="/shopping-cart"><img src={ shoppingCart } alt="Logo" className="shopping-cart-logo"/></Link>
+                </li>
+                <li className="user-page">
+                    <Link to="/user">
+                        <div className="logo-wrapper">
+                            <img src={userLogo} alt="" className="user-logo"/>
+                        </div>
+                    </Link>
                 </li>
             </ul>
         </nav>

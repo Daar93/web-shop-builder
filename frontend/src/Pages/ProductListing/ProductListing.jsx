@@ -26,14 +26,14 @@ const ProductListingPage = () => {
     return (
         <div>
             <h1>Product Listing</h1>
-            <ul>
+            <ul className="product-container">
                 {products.map((product) => (
                     <div className="product-card" key={ product.id }>
                         <img src="" alt="" />
                         <div className="prodcut-info">
                             <h2 className="product-title">{ product.name }</h2>
                             <p className="product-description">{ product.description }</p>
-                            <p className="product-rpice">{ product.price }$</p>
+                            <p className="product-rpice">{ product.price.toFixed(2) }$</p>
                             <button className="buy-button">Add to Cart</button>
                         </div>
                     </div>

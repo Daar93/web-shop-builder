@@ -12,6 +12,7 @@ import ProductListingPage from "./Pages/ProductListing/ProductListing.jsx";
 
 import "./index.scss";
 import ShoppingCartPage from "./Pages/ShoppingCart/ShoppingCart";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: "/shopping-cart",
         element: <ShoppingCartPage />
       },
+      {
+        path: "/user",
+        element: <Dashboard />
+      }
     ],
   },
 ]);
