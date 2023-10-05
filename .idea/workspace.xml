@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4648d2dd-6994-4d61-96ad-570186faf5e7" name="Changes" comment="not sure what this file is doing.but its interfering and will see if it should be included in the git ignore" />
+    <list default="true" id="4648d2dd-6994-4d61-96ad-570186faf5e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-shop/src/main/java/com/crusty/stars/webshop/controller/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-shop/src/main/java/com/crusty/stars/webshop/controller/DataLoader.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "memo",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696330673364</updated>
       <workItem from="1696330675762" duration="3716000" />
-      <workItem from="1696415616619" duration="4084000" />
+      <workItem from="1696415616619" duration="5151000" />
     </task>
     <task id="LOCAL-00001" summary="created a product class, repo, Endpoint and notFoundException.">
       <created>1696331337836</created>
@@ -113,7 +116,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696419277684</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First Merge successful.">
+      <created>1696420020039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420020039</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated the httpclient dependency due to building issues.">
+      <created>1696420536038</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420536038</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated the httpclient dependency due to building issues.">
+      <created>1696420660928</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420660928</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +147,8 @@
     <MESSAGE value="created a product class, repo, Endpoint and notFoundException." />
     <MESSAGE value="updated the product not found exception. and added a String to delete by id that confirms a successful delete" />
     <MESSAGE value="not sure what this file is doing.but its interfering and will see if it should be included in the git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="not sure what this file is doing.but its interfering and will see if it should be included in the git ignore" />
+    <MESSAGE value="First Merge successful." />
+    <MESSAGE value="updated the httpclient dependency due to building issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the httpclient dependency due to building issues." />
   </component>
 </project>
