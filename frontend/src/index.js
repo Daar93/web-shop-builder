@@ -10,7 +10,6 @@ import LandingPage from "./Pages/Landing/Landing.jsx"
 import RegistrationPage from "./Pages/Registration/Registration";
 import ProductListingPage from "./Pages/ProductListing/ProductListing.jsx";
 
-
 import "./index.scss";
 import ShoppingCartPage from "./Pages/ShoppingCart/ShoppingCart";
 
@@ -40,10 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/shopping-cart",
         element: <ShoppingCartPage />
-      }
-    ]
-  }
-  ]);
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

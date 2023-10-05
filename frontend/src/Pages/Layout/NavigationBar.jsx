@@ -20,6 +20,9 @@ export default function NavigationBar() {
                 <li className="registration-page">
                     <Link to="/registration">Registration</Link>
                 </li>
+                <li className="product-listing-page">
+                    <Link to="/products">Products</Link>
+                </li>
                 <li className="shopping-cart-page">
                     <Link to="/shopping-cart"><img src={ shoppingCart } alt="Logo" className="shopping-cart-logo"/></Link>
                 </li>
