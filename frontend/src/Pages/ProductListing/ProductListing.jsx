@@ -28,10 +28,15 @@ const ProductListingPage = () => {
             <h1>Product Listing</h1>
             <ul>
                 {products.map((product) => (
-                    <li key={product.id}>
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                    </li>
+                    <div className="product-card" key={ product.id }>
+                        <img src="" alt="" />
+                        <div className="prodcut-info">
+                            <h2 className="product-title">{ product.name }</h2>
+                            <p className="product-description">{ product.description }</p>
+                            <p className="product-rpice">{ product.price }$</p>
+                            <button className="buy-button">Add to Cart</button>
+                        </div>
+                    </div>
                 ))}
             </ul>
         </div>
