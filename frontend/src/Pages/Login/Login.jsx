@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "./Login.scss";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
@@ -28,6 +29,20 @@ export default function LoginPage() {
         );
         
         setIsLoggedIn(isDataValid);
+
+        if(!isDataValid) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "These login credentials are already in use."
+            });
+        } else {
+            Swal.fire({
+                icon: "success",
+                title: "Log In Process",
+                text: "Please Wait..."
+            });
+        }
     }
 
     return <div className="container">
@@ -45,7 +60,7 @@ export default function LoginPage() {
                         placeholder="Password"
                         type="password"
                     ></input>
-                    <button type="submit" onClick={ handleSubmit }>Submit</button>
+                    <button type="submit" onClick={ handleSubmit }>Log In</button>
                 </form>
             </div> 
         </div>
