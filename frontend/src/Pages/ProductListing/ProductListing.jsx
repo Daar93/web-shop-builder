@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "./ProductListing.scss"; // Update the import path as needed
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../Layout/NavigationBar";
 
-const ProductListingPage = () => {
-    // Define a state to store the products fetched from the server
+import "./ProductListing.scss";
+
+export default function ProductListingPage() {
     const [products, setProducts] = useState([]);
+    const { productList, setProductList } = useContext(AppContext);
 
     useEffect(() => {
-        // Fetch products from the API
         fetch("http://localhost:8080/api/products")
             .then((response) => {
                 if (!response.ok) {
@@ -15,7 +16,6 @@ const ProductListingPage = () => {
                 return response.json();
             })
             .then((data) => {
-                // Update the products state with the fetched data
                 setProducts(data);
             })
             .catch((error) => {
@@ -23,18 +23,28 @@ const ProductListingPage = () => {
             });
     }, []);
 
+    // console.log(productList);
+
+    function handleAddToCartButton(event) {
+        setProductList([...productList, products[event.target.id - 1]]);
+    }
+
     return (
         <div>
             <h1>Product Listing</h1>
-            <ul>
+            <ul className="product-container">
                 {products.map((product) => (
                     <div className="product-card" key={ product.id }>
                         <img src="" alt="" />
                         <div className="prodcut-info">
                             <h2 className="product-title">{ product.name }</h2>
                             <p className="product-description">{ product.description }</p>
-                            <p className="product-rpice">{ product.price }$</p>
-                            <button className="buy-button">Add to Cart</button>
+                            <p className="product-rpice">{ product.price.toFixed(2) }$</p>
+                            <button 
+                                className="add-to-cart-button" 
+                                id={ product.id } 
+                                onClick={ handleAddToCartButton } 
+                            >Add to Cart</button>
                         </div>
                     </div>
                 ))}
@@ -42,5 +52,3 @@ const ProductListingPage = () => {
         </div>
     );
 };
-
-export default ProductListingPage;
