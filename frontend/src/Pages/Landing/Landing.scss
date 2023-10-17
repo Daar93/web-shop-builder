@@ -1,12 +1,7 @@
-.product-container {
-    flex-direction: row;
-}
-
 .product-card {
     background-color: #BEBEBE;
     margin-top: 3rem;
-    display: inline-flex;
-    margin-right: 3rem;
+    display: flex;
     width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -49,7 +44,7 @@
     margin-bottom: 15px;
 }
 
-.add-to-cart-button {
+.buy-button {
     padding: 10px 15px;
     color: #FFF;
     background-color: #333333;
@@ -59,6 +54,6 @@
     transition: background-color 0.3s ease;
 }
 
-.add-to-cart-button:hover {
+.buy-button:hover {
     background-color: #555555;
 }

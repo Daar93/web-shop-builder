@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
 import "./Login.scss";
+import Swal from "sweetalert2";
 
-const LoginPage = () => {
+export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
     const [loginCredentials, setLoginCredentials] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,8 +14,6 @@ const LoginPage = () => {
             .then(data => setLoginCredentials(data))
     }, [])
 
-    console.log(loginCredentials);
-
     function onInputChange(event) {
         userInformation[event.target.name] = event.target.value;
         setUserInformation(userInformation);
@@ -24,10 +23,25 @@ const LoginPage = () => {
         event.preventDefault();
 
         const isDataValid = loginCredentials.some(credentials => 
-            credentials.name === userInformation.userName && credentials.password === userInformation.password
+            credentials.name === userInformation.userName &&
+            credentials.password === userInformation.password
         );
         
         setIsLoggedIn(isDataValid);
+
+        if(!isDataValid) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "These login credentials are already in use."
+            });
+        } else {
+            Swal.fire({
+                icon: "success",
+                title: "Log In Process",
+                text: "Please Wait..."
+            });
+        }
     }
 
     return <div className="container">
@@ -45,11 +59,9 @@ const LoginPage = () => {
                         placeholder="Password"
                         type="password"
                     ></input>
-                    <button type="submit" onClick={ handleSubmit }>Submit</button>
+                    <button type="submit" onClick={ handleSubmit }>Log In</button>
                 </form>
             </div> 
         </div>
     </div>
 };
-
-export default LoginPage;
