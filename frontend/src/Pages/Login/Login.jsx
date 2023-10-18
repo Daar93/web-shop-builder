@@ -4,11 +4,11 @@ import { Buffer } from "buffer";
 import "./Login.scss";
 import Swal from "sweetalert2";
 
-const BACKEND_ENDPOINT = "http://localhost:8080/messages";
+const BACKEND_ENDPOINT = "http://localhost:8080/login";
 
 export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
-    const [loginCredentials, setLoginCredentials] = useState(null);
+    const [token, setToken] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // useEffect(() => {
@@ -23,7 +23,7 @@ export default function LoginPage() {
         setUserInformation(userInformation);
     }
 
-    function handleSubmit(event) {
+    function handleLogin(event) {
         event.preventDefault();
         console.log(userInformation.userName);
         console.log(userInformation.password);
@@ -33,11 +33,12 @@ export default function LoginPage() {
             userInformation.userName + ":" + userInformation.password
         ).toString("base64");
         headers.set("Authorization", "Basic " + auth);
-        return fetch(BACKEND_ENDPOINT + "/authorized", { method: "GET", headers: headers })
+        return fetch(BACKEND_ENDPOINT, { method: "GET", headers: headers })
             .then(response => response.text())
-            .then(data => {
-                setLoginCredentials(data);
-                console.log(data);
+            .then(jwt => {
+                setToken(jwt);
+                console.log("JWT: " + jwt);
+                localStorage.setItem("jwt", jwt);
             })
             .catch(error => console.log("ERROR: " + error))
         // if(!isDataValid) {
@@ -71,7 +72,7 @@ export default function LoginPage() {
                         placeholder="Password"
                         type="password"
                     ></input>
-                    <button type="submit" onClick={ handleSubmit }>Log In</button>
+                    <button type="submit" onClick={ handleLogin }>Log In</button>
                 </form>
             </div> 
         </div>
