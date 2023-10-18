@@ -1,9 +1,7 @@
 package com.crusty.stars.webshop.model.user;
 
-import com.crusty.stars.webshop.model.Authority;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +13,6 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
-//    (fetch = FetchType.EAGER, targetClass = Authority.class)
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> authorities;
 

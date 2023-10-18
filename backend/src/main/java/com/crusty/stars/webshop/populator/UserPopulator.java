@@ -1,4 +1,4 @@
-package com.crusty.stars.webshop.runner;
+package com.crusty.stars.webshop.populator;
 
 import com.crusty.stars.webshop.model.user.User;
 import com.crusty.stars.webshop.model.user.UserRepository;

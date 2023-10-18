@@ -13,8 +13,6 @@ public class Product {
     private double price;
     private String description;
 
-    // Constructors, getters, setters, and other methods...
-
     public long getId() {
         return id;
     }

@@ -40,7 +40,6 @@ import java.util.List;
 @EnableWebSecurity
 @EnableConfigurationProperties(RsaKeyProperties.class)
 public class SecurityConfiguration {
-    //    filter chain configuration
     @Bean
     SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable()).cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -59,23 +58,18 @@ public class SecurityConfiguration {
         configuration.setAllowedMethods(List.of("GET","POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(Collections.singletonList("/*"));
         configuration.addAllowedHeader("*");
-//        configuration.setAllowedMethods(List.of("*"));
-//        configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-//    UserDetailService
+
     @Bean
     UserDetailsService userDetailManager(UserRepository userRepository) {
-//        String password = passwordEncoder().encode("password1");
-//        UserDetails user = User.withUsername("Memo").password(password).authorities("read").build();
-//        return new InMemoryUserDetailsManager(user);
         return username -> userRepository.findByUsername(username)
             .map(UserPrincipal::new)
             .orElseThrow(() -> new UsernameNotFoundException(username));
     }
-//    password encoder
+
     @Bean
     PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();

@@ -4,7 +4,9 @@ import { Buffer } from "buffer";
 import "./Login.scss";
 import Swal from "sweetalert2";
 
-const BACKEND_ENDPOINT = "http://localhost:8080/login";
+const BACKEND_ENDPOINT = "http://localhost:8080";
+const BACKEND_LOGIN = "http://localhost:8080/login";
+const BACKEND_CUSTOMIZED = "http://localhost:8080/messages/authorized/customized";
 
 export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
@@ -33,7 +35,7 @@ export default function LoginPage() {
             userInformation.userName + ":" + userInformation.password
         ).toString("base64");
         headers.set("Authorization", "Basic " + auth);
-        return fetch(BACKEND_ENDPOINT, { method: "GET", headers: headers })
+        return fetch(BACKEND_LOGIN, { method: "GET", headers: headers })
             .then(response => response.text())
             .then(jwt => {
                 setToken(jwt);
@@ -56,6 +58,25 @@ export default function LoginPage() {
         // }
     }
 
+    function handleCustomized(event) {
+        event.preventDefault();
+
+        const jwt = localStorage.getItem("jwt");
+        if (!jwt) {
+            alert("JWT is not provided");
+        }
+
+        const headers = new Headers();
+        headers.set("Authorization", `Bearer ${token}`);
+
+        return fetch(BACKEND_CUSTOMIZED, { method: "GET", headers: headers })
+            .then(response => response.text())
+            .then(data => {
+                console.log("YES");
+            })
+            .catch(error => console.log("ERROR: " + error))
+    }
+
     return <>
     <div className="container">
         <div className="login-card"> 
@@ -73,6 +94,7 @@ export default function LoginPage() {
                         type="password"
                     ></input>
                     <button type="submit" onClick={ handleLogin }>Log In</button>
+                    <button type="submit" onClick={ handleCustomized }>Customized</button>
                 </form>
             </div> 
         </div>

@@ -1,4 +1,4 @@
-package com.crusty.stars.webshop.runner;
+package com.crusty.stars.webshop.populator;
 
 import com.crusty.stars.webshop.model.product.Product;
 import com.crusty.stars.webshop.model.product.ProductRepository;
@@ -17,13 +17,14 @@ public class ProductPopulator {
                 Product product = new Product();
                 product.setName("Product " + i);
                 product.setDescription("Sample product " + i + " description");
-
-                // Generate a random price between $10 and $100
-                double price = 10 + (new Random().nextDouble() * 90);
-                product.setPrice(price);
+                product.setPrice(generateRandomPriceBetween10And90());
 
                 productRepository.save(product);
             }
         };
+    }
+
+    private double generateRandomPriceBetween10And90() {
+        return 10 + (new Random().nextDouble() * 90);
     }
 }

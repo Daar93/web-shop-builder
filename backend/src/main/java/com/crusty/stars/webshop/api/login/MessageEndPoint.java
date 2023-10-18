@@ -1,5 +1,6 @@
 package com.crusty.stars.webshop.api.login;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,5 +16,10 @@ public class MessageEndPoint {
     @GetMapping("authorized")
     String authorized() {
         return "Hell how are you doing?";
+    }
+
+    @GetMapping("authorized/customized")
+    String customized(Authentication authentication) {
+        return "Hello, " + authentication.getName();
     }
 }
