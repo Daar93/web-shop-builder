@@ -1,2 +1,4 @@
-package com.crusty.stars.webshop.service;public class JwtGenerator {
+package com.crusty.stars.webshop.service;
+
+public class JwtGenerator {
 }
