@@ -23,7 +23,8 @@ export default function LoginPage() {
         event.preventDefault();
 
         const isDataValid = loginCredentials.some(credentials => 
-            credentials.name === userInformation.userName && credentials.password === userInformation.password
+            credentials.name === userInformation.userName &&
+            credentials.password === userInformation.password
         );
         
         setIsLoggedIn(isDataValid);

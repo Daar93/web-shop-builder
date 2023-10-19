@@ -6,7 +6,11 @@ import "./ProductListing.scss";
 export default function ProductListingPage() {
     const [products, setProducts] = useState([]);
     const { productList, setProductList } = useContext(AppContext);
+    const [searchQuery, setSearchQuery] = useState("");
 
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    }
     useEffect(() => {
         fetch("http://localhost:8080/api/products")
             .then((response) => {
@@ -28,12 +32,26 @@ export default function ProductListingPage() {
     function handleAddToCartButton(event) {
         setProductList([...productList, products[event.target.id - 1]]);
     }
+    // Function to filter products based on the search query
+    const filteredProducts = products.filter((product) => {
+        const productName = product.name.toLowerCase();
+        return productName.includes(searchQuery.toLowerCase());
+    });
+
 
     return (
         <div>
             <h1>Product Listing</h1>
+            <li className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search for products"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+            </li>
             <ul className="product-container">
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <div className="product-card" key={ product.id }>
                         <img src="" alt="" />
                         <div className="prodcut-info">
@@ -48,6 +66,7 @@ export default function ProductListingPage() {
                         </div>
                     </div>
                 ))}
+
             </ul>
         </div>
     );

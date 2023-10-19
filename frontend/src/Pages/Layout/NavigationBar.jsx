@@ -11,6 +11,8 @@ export const AppContext = createContext([]);
 export default function NavigationBar() {
     const [productList, setProductList] = useState([]);
 
+
+
     return <div className="Layout">
         <AppContext.Provider value={{ productList, setProductList }}>
             <nav>
@@ -39,7 +41,7 @@ export default function NavigationBar() {
                                 <img src={userLogo} alt="" className="user-logo"/>
                             </div>
                         </Link>
-                    </li>
+                </li>
                 </ul>
             </nav>
             <Outlet />
