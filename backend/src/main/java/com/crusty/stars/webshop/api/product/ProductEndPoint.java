@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/products")
-public class ProductEndpoint {
-
+public class ProductEndPoint {
     private final ProductRepository productRepository;
 
     @Autowired
-    public ProductEndpoint(ProductRepository productRepository) {
+    public ProductEndPoint(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 

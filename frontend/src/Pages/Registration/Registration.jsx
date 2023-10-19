@@ -11,6 +11,7 @@ export default function RegistrationPage() {
         fetch("http://localhost:8080/users")
             .then(res => res.json())
             .then(data => setLoginCredentials(data))
+            .catch(error => console.error('Fetch error:', error));
     }, [])
 
     console.log(loginCredentials);
@@ -24,7 +25,8 @@ export default function RegistrationPage() {
         event.preventDefault();
 
         const isAlreadyInUsage = loginCredentials.some(credentials => 
-            credentials.name === userInformation.userName && credentials.password === userInformation.password
+            credentials.name === userInformation.userName &&
+            credentials.password === userInformation.password
         );
 
         Swal.fire({
@@ -32,33 +34,9 @@ export default function RegistrationPage() {
             title: 'Oops...',
             text: 'These login credentials are already in use.'
         });
-        
-        // if(!isAlreadyInUsage) {
-        //     fetch("http://localhost:8080/users/create", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application.json"
-        //         },
-        //         body: JSON.stringify({
-        //             "name": userInformation.name,
-        //             "password": userInformation.password
-        //         })
-        //     })
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             throw new Error("Network response failed");
-        //         }
-        //         return res.json();
-        //     })
-        //     .then(data => console.log(data))
-        //     .catch(error => console.log("There was a problem with the fetch operation: " + error.message));
-        // } else {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'These login credentials are already in use.'
-        //     });
-        // }
+
+
+        console.log(isAlreadyInUsage)
     }
 
     return <div className="registration">
