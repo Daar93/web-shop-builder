@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Buffer } from "buffer";
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "./Login.scss";
 import Swal from "sweetalert2";
 
@@ -12,6 +12,7 @@ export default function LoginPage() {
     const [userInformation, setUserInformation] = useState({});
     const [token, setToken] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
     // useEffect(() => {
     //     fetch("http://localhost:8080/messages/authorized")
@@ -19,6 +20,7 @@ export default function LoginPage() {
     //         .then(data => setLoginCredentials(data))
     //         .catch(error => console.error('Fetch error:', error));
     // }, [])
+
 
     function onInputChange(event) {
         userInformation[event.target.name] = event.target.value;
@@ -41,6 +43,13 @@ export default function LoginPage() {
                 setToken(jwt);
                 console.log("JWT: " + jwt);
                 localStorage.setItem("jwt", jwt);
+                navigate('/user');
+                Swal.fire({
+                            icon: "success",
+                            title: "Log In Process",
+                            text: "Please Wait..."
+                        });
+// Use useNavigate to navigate to the "/user" page
             })
             .catch(error => console.log("ERROR: " + error))
         // if(!isDataValid) {

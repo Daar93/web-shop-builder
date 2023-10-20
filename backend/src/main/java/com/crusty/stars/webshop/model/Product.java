@@ -1,4 +1,4 @@
-package com.crusty.stars.webshop.model.product;
+package com.crusty.stars.webshop.model;
 
 import jakarta.persistence.*;
 

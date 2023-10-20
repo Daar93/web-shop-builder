@@ -1,15 +1,13 @@
 package com.crusty.stars.webshop.api.login;
 
-import com.crusty.stars.webshop.api.user.UserNotFoundException;
 import com.crusty.stars.webshop.model.LoginResponse;
-import com.crusty.stars.webshop.model.user.User;
-import com.crusty.stars.webshop.model.user.UserRepository;
+import com.crusty.stars.webshop.model.User;
+import com.crusty.stars.webshop.model.UserRepository;
 import com.crusty.stars.webshop.service.JwtGenerator;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

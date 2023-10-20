@@ -1,6 +1,6 @@
 package com.crusty.stars.webshop.security;
 
-import com.crusty.stars.webshop.model.user.User;
+import com.crusty.stars.webshop.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
 package com.crusty.stars.webshop.populator;
 
-import com.crusty.stars.webshop.model.product.Product;
-import com.crusty.stars.webshop.model.product.ProductRepository;
+import com.crusty.stars.webshop.model.Product;
+import com.crusty.stars.webshop.model.ProductRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
