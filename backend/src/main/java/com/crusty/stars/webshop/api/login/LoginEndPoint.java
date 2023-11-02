@@ -25,7 +25,7 @@ public class LoginEndPoint {
     }
 
     @GetMapping
-    public LoginResponse jwt(Authentication authentication)  {
+    public LoginResponse jwt(Authentication authentication) {
         Optional<User> user = userRepository.findByUsername(authentication.getName());
         if (user.isPresent()) {
             return new LoginResponse(jwtGenerator.generate(authentication), user.get().getAuthorities());
